@@ -95,9 +95,9 @@ class Lista{
         void afisare()
         {
             nod* pointer;
-            for(pointer=primul_element;pointer!=nullptr;pointer=pointer->next)
+            for(pointer=primul_element; pointer!=nullptr; pointer=pointer->next)
             {
-                cout<<pointer->info<<" -> ";
+                cout<<pointer->info<<"  ";
             }
             cout<<endl;
         }
@@ -105,6 +105,14 @@ class Lista{
         ~Lista()
         {
             cout<<"Clasa Lista este distrusa"<<endl;
+            nod* dist= primul_element;
+            
+            while(dist!=nullptr)
+            {
+                nod* urmator=dist->next;
+                delete dist;
+                dist=urmator;
+            }
         }
         
     private:
